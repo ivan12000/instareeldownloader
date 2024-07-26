@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Reel Downloader</title>
+</head>
+<body>
+    <h1>Instagram Reel Downloader</h1>
+    <form method="POST">
+        <label for="url">Instagram Reel URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Download</button>
+    </form>
+    {% if filename %}
+        <h2>Download completed!</h2>
+        <a href="{{ url_for('download_file', filename=filename) }}">Click here to download your reel</a>
+    {% elif error %}
+        <h2>{{ error }}</h2>
+    {% endif %}
+</body>
+</html>
